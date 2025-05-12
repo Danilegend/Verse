@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eid ul-Fitr Mubarak</title>
+    <title>Christian Greeting Card</title>
     <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Scheherazade+New:wght@700&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -52,7 +52,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,50 Q25,25 50,50 T100,50" fill="none" stroke="%237a6b4e" stroke-width="0.8" opacity="0.3"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="45" y="20" width="10" height="60" fill="%237a6b4e" opacity="0.3"/><rect x="20" y="45" width="60" height="10" fill="%237a6b4e" opacity="0.3"/></svg>');
             opacity: 0.3;
             transform: rotate(45deg);
             animation: patternRotate 60s linear infinite;
@@ -92,18 +92,42 @@
             max-width: 650px;
             margin: 30px auto;
             animation: slideUp 1.5s ease-out;
+            transition: opacity 1s ease;
         }
 
-        .crescent {
+        .cross {
             position: absolute;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            box-shadow: 30px -30px 0 0 #f5e6c8;
-            animation: float 8s ease-in-out infinite;
+            width: 60px;
+            height: 100px;
             top: 60px;
             right: 60px;
             z-index: 4;
+        }
+
+        .cross::before,
+        .cross::after {
+            content: '';
+            position: absolute;
+            background: #f5e6c8;
+            box-shadow: 0 0 10px rgba(245, 230, 200, 0.5);
+        }
+
+        .cross::before {
+            width: 20px;
+            height: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cross::after {
+            width: 60px;
+            height: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .cross {
+            animation: float 8s ease-in-out infinite;
         }
 
         .lantern {
@@ -148,12 +172,12 @@
             animation: flicker 3s infinite alternate;
         }
 
-        .mosque-silhouette {
+        .church-silhouette {
             position: absolute;
             bottom: 0;
             width: 100%;
             height: 150px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveAspectRatio="none"><path d="M0,200 L0,50 Q50,-30 100,50 T200,50 T300,20 T400,50 T500,10 T600,50 T700,30 T800,50 T900,40 T1000,50 L1200,50 L1200,200 Z" fill="%231a2e1f"/></svg>') bottom center no-repeat;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveAspectRatio="none"><path d="M0,200 L0,100 L500,100 L500,50 L550,50 L550,20 L600,20 L600,50 L650,50 L650,100 L1200,100 L1200,200 Z" fill="%231a2e1f"/><rect x="575" y="0" width="10" height="20" fill="%231a2e1f"/><rect x="565" y="10" width="30" height="10" fill="%231a2e1f"/></svg>') bottom center no-repeat;
             background-size: cover;
             opacity: 0.8;
             z-index: 3;
@@ -185,6 +209,7 @@
             z-index: 5;
             opacity: 0.8;
             font-family: 'Aref Ruqaa', serif;
+            transition: opacity 1s ease;
         }
 
         .click-message {
@@ -207,6 +232,37 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
             opacity: 0;
             z-index: 4;
+        }
+
+        .footer-links {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+            font-family: 'Aref Ruqaa', serif;
+            color: #f5d7a0;
+            font-size: 1.2rem;
+        }
+
+        .footer-links p {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            color: #e7c278;
+        }
+
+        .footer-links a {
+            color: #c3d1d1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #f5d7a0;
+            text-decoration: underline;
         }
 
         /* Animations */
@@ -286,16 +342,31 @@
                 font-size: 1.2rem;
             }
 
-            .crescent {
-                width: 80px;
-                height: 80px;
-                box-shadow: 20px -20px 0 0 #f5e6c8;
+            .cross {
+                width: 40px;
+                height: 70px;
                 top: 40px;
                 right: 40px;
             }
+            .cross::before {
+                width: 15px;
+                height: 70px;
+            }
+            .cross::after {
+                width: 40px;
+                height: 15px;
+            }
 
-            .mosque-silhouette {
+            .church-silhouette {
                 height: 120px;
+            }
+
+            .footer-links {
+                font-size: 1rem;
+            }
+            .footer-links a {
+                margin: 0 10px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -303,7 +374,7 @@
 <body>
     <div class="eid-card" id="eidCard">
         <div class="stars" id="stars"></div>
-        <div class="crescent"></div>
+        <div class="cross"></div>
         
         <!-- Positioned Lanterns -->
         <div class="lantern" style="top: 80px; left: 70px; animation: swing 3s infinite ease-in-out;">
@@ -320,18 +391,24 @@
         </div>
         
         <div class="greeting-container">
-            <h1>عيد الفطر مبارك</h1>
-            <h2>Eid ul-Fitr Mubarak</h2>
+            <h1>እግዚአብሔር</h1>
+            <h2>በእናንተ ዘንድ ሁሉ በፍቅር ይሁን</h2>
             <p class="greeting-message">
-                May this blessed Eid bring you joy, peace, and happiness after the holy month of Ramadan.
-                May Allah accept your fasting, prayers, and generous deeds, and shower His blessings upon you and your loved ones.
+                በመጀመሪያው ቃል ነበረ፥ ቃልም በእግዚአብሔር ዘንድ ነበረ፥ ቃልም እግዚአብሔር ነበረ።
             </p>
         </div>
         
-        <div class="mosque-silhouette"></div>
+        <div class="church-silhouette"></div>
         
-        <div class="date">1 Shawwal 1445 AH</div>
+        <div class="date">የዮሐንስ ወንጌል 1:1</div>
         <div class="click-message">Click anywhere for celebration!</div>
+    </div>
+
+    <div class="footer-links">
+        <p>Made with ❤️ [Daniel Sema]</p>
+        <a href="https://dani-sema.netlify.app/" target="_blank">Portfolio</a>
+        <a href="https://www.paypal.com/paypalme/DanielSema" target="_blank">Support via PayPal</a>
+        <a href="https://buymeacoffee.com/danielsema" target="_blank">Buy Me a Coffee</a>
     </div>
 
     <script>
@@ -341,14 +418,12 @@
             const star = document.createElement('div');
             star.classList.add('star');
             
-            // Random position and size
             star.style.left = `${Math.random() * 100}%`;
             star.style.top = `${Math.random() * 70}%`;
             const size = Math.random() * 4 + 1;
             star.style.width = `${size}px`;
             star.style.height = `${size}px`;
             
-            // Random animation delay
             star.style.animationDelay = `${Math.random() * 3}s`;
             
             starsContainer.appendChild(star);
@@ -357,23 +432,19 @@
         // Celebration effects
         const card = document.getElementById('eidCard');
         const colors = ['#f5d7a0', '#e7c278', '#b58e4e', '#7a6b4e', '#f7ce70', '#e3a857', '#c98a3e'];
-        const arabicMessages = ["تقبل الله", "كل عام وأنتم بخير", "عيد سعيد", "الحمد لله", "الله أكبر"];
+        const arabicMessages = ["እግዚአብሔር", "ፀሎት", "ጥበብ", "ቃል", "ፍቅር", "ይቅርታ", "ሰላም", "ፈውስ", "ኢየሱስ ክርስቶስ"];
 
         card.addEventListener('click', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            // Create celebration particles
             createParticles(20, x, y);
-            
-            // Create floating Arabic messages
             createFloatingMessages(5, x, y);
             
-            // Make lanterns glow
             const lanternLights = document.querySelectorAll('.lantern-light');
             lanternLights.forEach(light => {
-                light.style.animation = 'flicker 0.5s';
+                light.style.animation = 'ficker 0.5s';
                 light.style.backgroundColor = `rgba(247, 206, 112, ${Math.random() * 0.5 + 0.3})`;
                 light.style.boxShadow = `0 0 30px rgba(247, 206, 112, 0.8)`;
                 setTimeout(() => {
@@ -381,10 +452,13 @@
                 }, 1000);
             });
             
-            // Play celebration sound
-            const audio = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU...'); // Short celebration sound encoded as base64
-            audio.volume = 0.3;
-            audio.play();
+            try {
+                const audio = new Audio('celebration-sound.mp3');
+                audio.volume = 0.3;
+                audio.play();
+            } catch (error) {
+                console.warn("Failed to play audio:", error);
+            }
         });
 
         function createParticles(count, x, y) {
@@ -408,14 +482,8 @@
                 const duration = Math.random() * 1000 + 500;
                 
                 particle.animate([
-                    { 
-                        transform: `translate(0, 0) scale(0.5)`,
-                        opacity: 1
-                    },
-                    { 
-                        transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(2)`,
-                        opacity: 0
-                    }
+                    { transform: `translate(0, 0) scale(0.5)`, opacity: 1 },
+                    { transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(2)`, opacity: 0 }
                 ], {
                     duration: duration,
                     easing: 'ease-out'
@@ -457,7 +525,7 @@
                 }, duration);
             }
         }
-        
+
         // Auto-fireworks every 10 seconds
         setInterval(() => {
             const rect = card.getBoundingClientRect();
@@ -467,6 +535,71 @@
             createParticles(15, x, y);
             createFloatingMessages(2, x, y);
         }, 10000);
+
+        // Verse rotation
+        const verseReferences = [
+            { book: "JHN", chapter: 1, verse: 1 },
+            { book: "JHN", chapter: 1, verse: 14 },
+            { book: "JHN", chapter: 3, verse: 16 },
+            { book: "MAT", chapter: 5, verse: 3 },
+            { book: "MAT", chapter: 5, verse: 44 },
+            { book: "PSA", chapter: 23, verse: 1 },
+            { book: "PSA", chapter: 23, verse: 4 },
+            { book: "PRO", chapter: 3, verse: 5 },
+            { book: "ISA", chapter: 40, verse: 31 },
+            { book: "ROM", chapter: 8, verse: 28 },
+            { book: "1CO", chapter: 13, verse: 13 },
+            { book: "EPH", chapter: 2, verse: 8 },
+            { book: "PHP", chapter: 4, verse: 13 },
+            { book: "HEB", chapter: 11, verse: 1 },
+            { book: "JAS", chapter: 1, verse: 5 },
+            { book: "1PE", chapter: 5, verse: 7 },
+            { book: "JER", chapter: 29, verse: 11 },
+            { book: "2CO", chapter: 5, verse: 7 },
+            { book: "GAL", chapter: 5, verse: 22 },
+            { book: "COL", chapter: 3, verse: 23 }
+        ];
+
+        async function fetchAmharicVerse(book, chapter, verse) {
+            try {
+                const response = await fetch('verses.json');
+                const data = await response.json();
+                const verseData = data.find(v => v.book === book && v.chapter === chapter && v.verse === verse);
+                return {
+                    text: verseData?.text || "Verse not found",
+                    reference: `${book} ${chapter}:${verse}`
+                };
+            } catch (error) {
+                console.error("Error fetching verse:", error);
+                return {
+                    text: "በመጀመሪያው ቃል ነበረ፥ ቃልም በእግዚአብሔር ዘንድ ነበረ፥ ቃልም እግዚአብሔር ነበረ።",
+                    reference: "የዮሐንስ ወንጌል 1:1"
+                };
+            }
+        }
+
+        async function updateVerse() {
+            const randomVerse = verseReferences[Math.floor(Math.random() * verseReferences.length)];
+            const verseData = await fetchAmharicVerse(randomVerse.book, randomVerse.chapter, randomVerse.verse);
+            
+            const greetingMessage = document.querySelector(".greeting-message");
+            const dateElement = document.querySelector(".date");
+            
+            greetingMessage.textContent = verseData.text;
+            dateElement.textContent = verseData.reference;
+            
+            greetingMessage.style.opacity = 0;
+            dateElement.style.opacity = 0;
+            setTimeout(() => {
+                greetingMessage.style.opacity = 1;
+                dateElement.style.opacity = 0.8;
+                greetingMessage.style.transition = "opacity 1s ease";
+                dateElement.style.transition = "opacity 1s ease";
+            }, 100);
+        }
+
+        updateVerse();
+        setInterval(updateVerse, 30000);
     </script>
-<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <a href="https://enzostvs-deepsite.hf.space" style="color: #fff;" target="_blank" >DeepSite</a> <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;"></p></body>
-</html>
+</body>
+</html>§
