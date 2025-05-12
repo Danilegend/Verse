@@ -19,7 +19,7 @@
             align-items: center;
             min-height: 100vh;
             font-family: 'Aref Ruqaa', serif;
-            overflow: hidden;
+            overflow-x: hidden;
             perspective: 1000px;
         }
 
@@ -74,6 +74,7 @@
             text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
             font-family: 'Scheherazade New', serif;
             animation: glow 3s ease-in-out infinite alternate;
+            line-height: 1.2;
         }
 
         .greeting-container h2 {
@@ -83,6 +84,7 @@
             font-family: 'Amiri', serif;
             letter-spacing: 2px;
             animation: pulse 2s infinite;
+            line-height: 1.3;
         }
 
         .greeting-message {
@@ -93,6 +95,7 @@
             margin: 30px auto;
             animation: slideUp 1.5s ease-out;
             transition: opacity 1s ease;
+            padding: 10px;
         }
 
         .cross {
@@ -210,6 +213,8 @@
             opacity: 0.8;
             font-family: 'Aref Ruqaa', serif;
             transition: opacity 1s ease;
+            text-align: center;
+            padding: 0 10px;
         }
 
         .click-message {
@@ -222,6 +227,8 @@
             z-index: 5;
             opacity: 0.7;
             animation: pulse 2s infinite;
+            text-align: center;
+            padding: 0 10px;
         }
 
         .date-floating {
@@ -244,6 +251,7 @@
             font-family: 'Aref Ruqaa', serif;
             color: #f5d7a0;
             font-size: 1.2rem;
+            max-width: 90%;
         }
 
         .footer-links p {
@@ -323,50 +331,216 @@
             100% { transform: scale(2); opacity: 0; }
         }
 
-        /* Responsive design */
+        /* Responsive design for tablets and larger mobile devices */
         @media (max-width: 768px) {
             .eid-card {
-                height: 550px;
+                height: auto;
+                min-height: 500px;
                 max-width: 95%;
+                padding: 20px;
+            }
+
+            .greeting-container {
+                padding: 20px;
+                max-width: 90%;
             }
 
             .greeting-container h1 {
-                font-size: 4rem;
+                font-size: 3rem;
+                margin-bottom: 20px;
             }
 
             .greeting-container h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 25px;
             }
 
             .greeting-message {
-                font-size: 1.2rem;
+                font-size: 1rem;
+                line-height: 1.6;
+                margin: 20px auto;
+                padding: 10px;
             }
 
             .cross {
                 width: 40px;
                 height: 70px;
-                top: 40px;
-                right: 40px;
+                top: 20px;
+                right: 20px;
             }
+
             .cross::before {
                 width: 15px;
                 height: 70px;
             }
+
             .cross::after {
                 width: 40px;
                 height: 15px;
             }
 
+            .lantern {
+                width: 40px;
+                height: 60px;
+            }
+
+            .lantern::before {
+                top: -8px;
+                left: 15px;
+                width: 8px;
+                height: 8px;
+            }
+
+            .lantern::after {
+                bottom: -10px;
+                left: 17px;
+                width: 5px;
+                height: 10px;
+            }
+
+            .lantern-light {
+                width: 24px;
+                height: 40px;
+                top: 10px;
+                left: 8px;
+            }
+
             .church-silhouette {
-                height: 120px;
+                height: 100px;
+            }
+
+            .date {
+                font-size: 0.9rem;
+                bottom: 30px;
+                padding: 0 15px;
+            }
+
+            .click-message {
+                font-size: 0.8rem;
+                bottom: 10px;
+                padding: 0 15px;
             }
 
             .footer-links {
-                font-size: 1rem;
-            }
-            .footer-links a {
-                margin: 0 10px;
                 font-size: 0.9rem;
+                max-width: 90%;
+                bottom: 10px;
+            }
+
+            .footer-links p {
+                font-size: 0.8rem;
+            }
+
+            .footer-links a {
+                margin: 0 8px;
+                font-size: 0.8rem;
+                display: inline-block;
+            }
+        }
+
+        /* Additional media query for very small screens (e.g., 480px and below) */
+        @media (max-width: 480px) {
+            .eid-card {
+                min-height: 450px;
+                padding: 15px;
+            }
+
+            .greeting-container {
+                padding: 15px;
+            }
+
+            .greeting-container h1 {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+
+            .greeting-container h2 {
+                font-size: 1.4rem;
+                margin-bottom: 20px;
+            }
+
+            .greeting-message {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                margin: 15px auto;
+                padding: 8px;
+            }
+
+            .cross {
+                width: 30px;
+                height: 50px;
+                top: 15px;
+                right: 15px;
+            }
+
+            .cross::before {
+                width: 10px;
+                height: 50px;
+            }
+
+            .cross::after {
+                width: 30px;
+                height: 10px;
+            }
+
+            .lantern {
+                width: 30px;
+                height: 50px;
+            }
+
+            .lantern::before {
+                top: -6px;
+                left: 12px;
+                width: 6px;
+                height: 6px;
+            }
+
+            .lantern::after {
+                bottom: -8px;
+                left: 12px;
+                width: 4px;
+                height: 8px;
+            }
+
+            .lantern-light {
+                width: 18px;
+                height: 30px;
+                top: 8px;
+                left: 6px;
+            }
+
+            .church-silhouette {
+                height: 80px;
+            }
+
+            .date {
+                font-size: 0.8rem;
+                bottom: 25px;
+                padding: 0 10px;
+            }
+
+            .click-message {
+                font-size: 0.7rem;
+                bottom: 5px;
+                padding: 0 10px;
+            }
+
+            .footer-links {
+                font-size: 0.8rem;
+                bottom: 5px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .footer-links p {
+                font-size: 0.7rem;
+            }
+
+            .footer-links a {
+                margin: 2px 0;
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -602,4 +776,4 @@
         setInterval(updateVerse, 30000);
     </script>
 </body>
-</html>§
+</html>
