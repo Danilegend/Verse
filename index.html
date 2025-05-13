@@ -12,8 +12,32 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-gradient: linear-gradient(135deg, #051e27, #123d4a);
+            --card-bg: linear-gradient(145deg, rgba(16, 59, 80, 0.9), rgba(8, 34, 54, 0.95));
+            --text-primary: #f5d7a0;
+            --text-secondary: #e7c278;
+            --text-tertiary: #c3d1d1;
+            --silhouette-fill: #1a2e1f;
+            --cross-bg: #f5e6c8;
+            --button-bg: rgba(255, 255, 255, 0.2);
+            --button-hover-bg: rgba(255, 255, 255, 0.4);
+        }
+
+        [data-theme="light"] {
+            --bg-gradient: linear-gradient(135deg, #f5e6c8, #d4c8a1);
+            --card-bg: linear-gradient(145deg, rgba(245, 230, 200, 0.9), rgba(220, 200, 150, 0.95));
+            --text-primary: #5a4620;
+            --text-secondary: #7a6b4e;
+            --text-tertiary: #3a2e15;
+            --silhouette-fill: #3a2e15;
+            --cross-bg: #8a6729;
+            --button-bg: rgba(0, 0, 0, 0.2);
+            --button-hover-bg: rgba(0, 0, 0, 0.4);
+        }
+
         body {
-            background: linear-gradient(135deg, #051e27, #123d4a);
+            background: var(--bg-gradient);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,7 +52,7 @@
             width: 90%;
             max-width: 850px;
             height: 650px;
-            background: linear-gradient(145deg, rgba(16, 59, 80, 0.9), rgba(8, 34, 54, 0.95));
+            background: var(--card-bg);
             border-radius: 25px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
             overflow: hidden;
@@ -69,7 +93,7 @@
 
         .greeting-container h1 {
             font-size: 5.5rem;
-            color: #f5d7a0;
+            color: var(--text-primary);
             margin-bottom: 30px;
             text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
             font-family: 'Scheherazade New', serif;
@@ -79,7 +103,7 @@
 
         .greeting-container h2 {
             font-size: 2.5rem;
-            color: #e7c278;
+            color: var(--text-secondary);
             margin-bottom: 35px;
             font-family: 'Amiri', serif;
             letter-spacing: 2px;
@@ -89,7 +113,7 @@
 
         .greeting-message {
             font-size: 1.4rem;
-            color: #c3d1d1;
+            color: var(--text-tertiary);
             line-height: 1.8;
             max-width: 650px;
             margin: 30px auto;
@@ -111,7 +135,7 @@
         .cross::after {
             content: '';
             position: absolute;
-            background: #f5e6c8;
+            background: var(--cross-bg);
             box-shadow: 0 0 10px rgba(245, 230, 200, 0.5);
         }
 
@@ -186,6 +210,11 @@
             z-index: 3;
         }
 
+        [data-theme="light"] .church-silhouette {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveAspectRatio="none"><path d="M0,200 L0,100 L500,100 L500,50 L550,50 L550,20 L600,20 L600,50 L650,50 L650,100 L1200,100 L1200,200 Z" fill="%233a2e15"/><rect x="575" y="0" width="10" height="20" fill="%233a2e15"/><rect x="565" y="10" width="30" height="10" fill="%233a2e15"/></svg>') bottom center no-repeat;
+            background-size: cover;
+        }
+
         .stars {
             position: absolute;
             top: 0;
@@ -207,7 +236,7 @@
             bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            color: #e7c278;
+            color: var(--text-secondary);
             font-size: 1.2rem;
             z-index: 5;
             opacity: 0.8;
@@ -222,7 +251,7 @@
             bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
-            color: #c3d1d1;
+            color: var(--text-tertiary);
             font-size: 1rem;
             z-index: 5;
             opacity: 0.7;
@@ -234,7 +263,7 @@
         .date-floating {
             position: absolute;
             font-family: 'Amiri', serif;
-            color: #f5d7a0;
+            color: var(--text-primary);
             font-size: 1.8rem;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
             opacity: 0;
@@ -249,7 +278,7 @@
             text-align: center;
             z-index: 10;
             font-family: 'Aref Ruqaa', serif;
-            color: #f5d7a0;
+            color: var(--text-primary);
             font-size: 1.2rem;
             max-width: 90%;
         }
@@ -257,11 +286,11 @@
         .footer-links p {
             margin: 0 0 10px 0;
             font-size: 1rem;
-            color: #e7c278;
+            color: var(--text-secondary);
         }
 
         .footer-links a {
-            color: #c3d1d1;
+            color: var(--text-tertiary);
             text-decoration: none;
             margin: 0 15px;
             font-size: 1rem;
@@ -269,8 +298,89 @@
         }
 
         .footer-links a:hover {
-            color: #f5d7a0;
+            color: var(--text-primary);
             text-decoration: underline;
+        }
+
+        /* Sound Control Button */
+        .sound-control {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 15;
+            background: var(--button-bg);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .sound-control:hover {
+            background: var(--button-hover-bg);
+        }
+
+        .sound-control svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-primary);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 15;
+            background: var(--button-bg);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--button-hover-bg);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-primary);
+        }
+
+        /* Share Button */
+        .share-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 15;
+            background: var(--button-bg);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .share-button:hover {
+            background: var(--button-hover-bg);
+        }
+
+        .share-button svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-primary);
         }
 
         /* Animations */
@@ -436,6 +546,30 @@
                 font-size: 0.8rem;
                 display: inline-block;
             }
+
+            .sound-control, .theme-toggle, .share-button {
+                top: 15px;
+                width: 35px;
+                height: 35px;
+            }
+
+            .sound-control {
+                left: 15px;
+            }
+
+            .theme-toggle {
+                right: 15px;
+            }
+
+            .share-button {
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .sound-control svg, .theme-toggle svg, .share-button svg {
+                width: 20px;
+                height: 20px;
+            }
         }
 
         /* Additional media query for very small screens (e.g., 480px and below) */
@@ -542,11 +676,45 @@
                 margin: 2px 0;
                 font-size: 0.7rem;
             }
+
+            .sound-control, .theme-toggle, .share-button {
+                top: 10px;
+                width: 30px;
+                height: 30px;
+            }
+
+            .sound-control {
+                left: 10px;
+            }
+
+            .theme-toggle {
+                right: 10px;
+            }
+
+            .share-button {
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .sound-control svg, .theme-toggle svg, .share-button svg {
+                width: 18px;
+                height: 18px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="eid-card" id="eidCard">
+        <div class="sound-control" id="soundControl">
+            <svg id="soundIcon" viewBox="0 0 24 24">
+                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            </svg>
+        </div>
+        <div class="theme-toggle" id="themeToggle">
+            <svg id="themeIcon" viewBox="0 0 24 24">
+                <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 7a5 5 0 100 10 5 5 0 000-10z"/>
+            </svg>
+        </div>
         <div class="stars" id="stars"></div>
         <div class="cross"></div>
         
@@ -576,6 +744,12 @@
         
         <div class="date">የዮሐንስ ወንጌል 1:1</div>
         <div class="click-message">Click anywhere for celebration!</div>
+        
+        <div class="share-button" id="shareButton">
+            <svg viewBox="0 0 24 24">
+                <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92zM18 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM6 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm12 7.02c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
+            </svg>
+        </div>
     </div>
 
     <div class="footer-links">
@@ -586,6 +760,95 @@
     </div>
 
     <script>
+        // Sound Control Logic
+        let isSoundOn = localStorage.getItem('soundOn') !== 'false'; // Default to true
+        const soundControl = document.getElementById('soundControl');
+        const soundIcon = document.getElementById('soundIcon');
+        let celebrationAudio = null;
+
+        // Initialize audio
+        function initializeAudio() {
+            if (!celebrationAudio) {
+                celebrationAudio = new Audio('celebration-sound.mp3');
+                celebrationAudio.volume = 0.3;
+                celebrationAudio.onended = () => {
+                    celebrationAudio.currentTime = 0; // Reset audio to start
+                };
+            }
+        }
+
+        // SVG paths for sound on/off states
+        const soundOnPath = "M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z";
+        const soundOffPath = "M16.5 12c0-1.77-1.02-3.29-2.5-4.03v1.79l2.48 2.48c.01-.08.02-.16.02-.24zm-2 5.56v-2.81l-2.48 2.48 2.48.33zm-10-6.56H7l5 5V9.5L7 14.5H4v-3zm0 6h3l3-3v-1.5H4v4.5zM14 3.23v2.06c2.89.86 5 3.54 5 6.71 0 1.38-.34 2.67-.94 3.81l-1.56-1.56c.41-.83.5-1.75.5-2.25 0-2.98-2.01-5.49-4.75-6.24v2.06l-2.48-2.48 2.48-2.05z";
+
+        function updateSoundIcon() {
+            soundIcon.setAttribute('d', isSoundOn ? soundOnPath : soundOffPath);
+        }
+
+        // Initialize sound state
+        updateSoundIcon();
+
+        soundControl.addEventListener('click', () => {
+            isSoundOn = !isSoundOn;
+            localStorage.setItem('soundOn', isSoundOn);
+            updateSoundIcon();
+            if (!isSoundOn && celebrationAudio && !celebrationAudio.paused) {
+                celebrationAudio.pause();
+                celebrationAudio.currentTime = 0;
+            }
+        });
+
+        // Theme Toggle Logic
+        let isDarkTheme = localStorage.getItem('theme') !== 'light'; // Default to dark
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        const darkThemePath = "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 7a5 5 0 100 10 5 5 0 000-10z";
+        const lightThemePath = "M12 8a4 4 0 100 8 4 4 0 000-8zm0 10a6 6 0 01-5.996-5.775l-.002-.225h-2l.002.225A8 8 0 1012 4v2a6 6 0 010 12z";
+
+        function updateThemeIcon() {
+            document.body.setAttribute('data-theme', isDarkTheme ? 'dark' : 'light');
+            themeIcon.setAttribute('d', isDarkTheme ? darkThemePath : lightThemePath);
+        }
+
+        // Initialize theme
+        updateThemeIcon();
+
+        themeToggle.addEventListener('click', () => {
+            isDarkTheme = !isDarkTheme;
+            localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+            updateThemeIcon();
+        });
+
+        // Share Button Logic
+        const shareButton = document.getElementById('shareButton');
+        let currentVerseText = "";
+        let currentVerseReference = "";
+
+        shareButton.addEventListener('click', async () => {
+            const textToShare = `${currentVerseText} (${currentVerseReference})`;
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'Amharic Bible Verse',
+                        text: textToShare,
+                        url: window.location.href
+                    });
+                } catch (error) {
+                    console.warn("Sharing failed:", error);
+                }
+            } else {
+                // Fallback: Copy to clipboard
+                try {
+                    await navigator.clipboard.writeText(textToShare);
+                    alert("Verse copied to clipboard!");
+                } catch (error) {
+                    console.warn("Failed to copy:", error);
+                    alert("Failed to copy verse. Please copy manually: " + textToShare);
+                }
+            }
+        });
+
         // Create stars
         const starsContainer = document.getElementById('stars');
         for (let i = 0; i < 150; i++) {
@@ -608,31 +871,35 @@
         const colors = ['#f5d7a0', '#e7c278', '#b58e4e', '#7a6b4e', '#f7ce70', '#e3a857', '#c98a3e'];
         const arabicMessages = ["እግዚአብሔር", "ፀሎት", "ጥበብ", "ቃል", "ፍቅር", "ይቅርታ", "ሰላም", "ፈውስ", "ኢየሱስ ክርስቶስ"];
 
-        card.addEventListener('click', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
+        function triggerCelebration(x, y) {
             createParticles(20, x, y);
             createFloatingMessages(5, x, y);
             
             const lanternLights = document.querySelectorAll('.lantern-light');
             lanternLights.forEach(light => {
-                light.style.animation = 'ficker 0.5s';
+                light.style.animation = 'flicker 0.5s';
                 light.style.backgroundColor = `rgba(247, 206, 112, ${Math.random() * 0.5 + 0.3})`;
                 light.style.boxShadow = `0 0 30px rgba(247, 206, 112, 0.8)`;
                 setTimeout(() => {
                     light.style.animation = 'flicker 3s infinite alternate';
                 }, 1000);
             });
-            
-            try {
-                const audio = new Audio('celebration-sound.mp3');
-                audio.volume = 0.3;
-                audio.play();
-            } catch (error) {
-                console.warn("Failed to play audio:", error);
+
+            if (isSoundOn) {
+                try {
+                    initializeAudio();
+                    celebrationAudio.play();
+                } catch (error) {
+                    console.warn("Failed to play audio:", error);
+                }
             }
+        }
+
+        card.addEventListener('click', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            triggerCelebration(x, y);
         });
 
         function createParticles(count, x, y) {
@@ -705,9 +972,7 @@
             const rect = card.getBoundingClientRect();
             const x = Math.random() * rect.width;
             const y = Math.random() * rect.height * 0.7;
-            
-            createParticles(15, x, y);
-            createFloatingMessages(2, x, y);
+            triggerCelebration(x, y);
         }, 10000);
 
         // Verse rotation
@@ -761,6 +1026,10 @@
             
             greetingMessage.textContent = verseData.text;
             dateElement.textContent = verseData.reference;
+            
+            // Update shareable text
+            currentVerseText = verseData.text;
+            currentVerseReference = verseData.reference;
             
             greetingMessage.style.opacity = 0;
             dateElement.style.opacity = 0;
